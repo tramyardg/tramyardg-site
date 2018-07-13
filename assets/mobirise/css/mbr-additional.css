@@ -1518,3 +1518,22 @@ hr.style-one {
 #back-to-top:hover {
   text-decoration: underline;
 }
+.dev-env {
+  font-weight: 500 !important;
+}
+
+.card-img-right {
+  height: 100%;
+  border-radius: 0 3px 3px 0;
+}
+
+.flex-auto {
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+}
+
+.box-shadow {
+  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+  background-color: white;
+}
+
