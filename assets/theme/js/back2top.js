@@ -42,6 +42,7 @@ const back2top = (function () {
         back2top.id.style.borderWidth = '0 3px 3px 0';
         back2top.id.style.transform = 'rotate(-135deg)';
         back2top.id.style.webkitTransform = 'rotate(-135deg)';
+        back2top.id.style.cursor = 'pointer';
       },
       createArrowUp () {
         let arrow = document.createElement('i');
