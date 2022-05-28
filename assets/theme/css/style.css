@@ -424,3 +424,17 @@ nav .mbr-section-btn {
 	top: 0;
 	left: -2400px;
 }
+/* --------------------------------------------------- */
+#sm-container {
+  display: flex;
+  align-content: center;
+  justify-content: flex-end;
+  padding-top: 10px;
+}
+#sm-container a {
+  margin-left: 10px;
+}
+#sm-container a svg {
+  width: 24px;
+  height: 24px;
+}
