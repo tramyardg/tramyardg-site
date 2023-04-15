@@ -467,17 +467,29 @@
 <script src="assets/theme/js/script.js"></script>
 <script src="assets/theme/js/back2top.js"></script>
 
-<script src="//cdn.jsdelivr.net/npm/eruda"></script>
+
 <script>
-let console = eruda.get('console');
-console.log("Hello! Thank you for visiting my portfolio.");
-console.log('eruda is a console for %s.', 'mobile browsers');
-console.table([{test: 1}, {test: 2}, {test2: 3}], 'test');
-console.error(new Error('eruda'));
-console.on('log', function () 
-{
-    // Do whatever you want, send to server or save on local storage.
-});
+javascript: (function() {
+    var script = document.createElement('script');
+    script.src = "//cdn.jsdelivr.net/npm/eruda";
+    document.body.appendChild(script);
+    script.onload = function() {
+        eruda.init()
+    }
+})();
+
+if (eruda) {
+    let console = eruda.get('console');
+    console.log("Hello! Thank you for visiting my portfolio.");
+    console.log('eruda is a console for %s.', 'mobile browsers');
+    console.table([{test: 1}, {test: 2}, {test2: 3}], 'test');
+    console.error(new Error('eruda'));
+    console.on('log', function () 
+    {
+        // Do whatever you want, send to server or save on local storage.
+    });
+}
+
 </script>
 
 </body>
