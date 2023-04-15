@@ -479,8 +479,8 @@ javascript: (function() {
 })();
 
 if (eruda) {
-    let console = eruda.get('console');
     console.log("Hello! Thank you for visiting my portfolio.");
+    let console = eruda.get('console');
     console.log('eruda is a console for %s.', 'mobile browsers');
     console.table([{test: 1}, {test: 2}, {test2: 3}], 'test');
     console.error(new Error('eruda'));
