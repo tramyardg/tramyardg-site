@@ -86,7 +86,7 @@
         <div class="d-flex flex-wrap mb-5">
             <div class=""><a href="/">All</a></div>
             <div class="ms-4 me-2">
-                <select id="filter-language" class="custom-select" onchange="handleSelectLanguage()">
+                <select id="filter-language" class="custom-select" onchange="handleSelectChange()">
                     <option value="-1" selected>Programming Languages</option>
                     <option value="JavaScript">JavaScript</option>
                     <option value="PHP">PHP</option>
@@ -94,7 +94,7 @@
                 </select>
             </div>
             <div class="mx-2">
-                <select id="filter-library" class="custom-select">
+                <select id="filter-library" class="custom-select" onchange="handleSelectChange()">
                     <option value="-1" selected>Front-end Frameworks & Libraries</option>
                     <option value="React">React</option>
                     <option value="NextJS">Next.js</option>
@@ -104,7 +104,7 @@
                 </select>
             </div>
             <div class="mx-2">
-                <select id="filter-cms" class="custom-select">
+                <select id="filter-cms" class="custom-select" onchange="handleSelectChange()">
                     <option value="-1" selected>Content Management System</option>
                     <option value="WordPress">WordPress</option>
                     <option value="HubSpot">HubSpot</option>
@@ -112,7 +112,7 @@
                 </select>
             </div>
             <div class="">
-                <select id="filter-other" class="custom-select">
+                <select id="filter-other" class="custom-select" onchange="handleSelectChange()">
                     <option value="-1" selected>Other technologies</option>
                     <option value="Elementor">Elementor</option>
                     <option value="CPT">Custom Post Type</option>
@@ -591,31 +591,27 @@
     var filterLanguage = document.getElementById('filter-language');
     var filterCms = document.getElementById('filter-cms');
     var filterOther = document.getElementById('filter-other');
-    function handleSelectLanguage() {
+    function handleSelectChange() {
         var selectedValue = filterLanguage.value;
-        if (eruda) {
-            console.log("Selected value: " + selectedValue);
-            var arr = [
-                (filterLanguage.value != '-1' ? filterLanguage.value : null),
-                (filterLibrary.value != '-1' ? filterLibrary.value : null),
-                (filterCms.value != '-1' ? filterCms.value : null),
-                (filterOther.value != '-1' ? filterOther.value : null)
-            ]
-            var filteredArr = arr.filter(function(value) {
-                return value !== null;
+        console.log("Selected value: " + selectedValue);
+        var arr = [
+            (filterLanguage.value != '-1' ? filterLanguage.value : null),
+            (filterLibrary.value != '-1' ? filterLibrary.value : null),
+            (filterCms.value != '-1' ? filterCms.value : null),
+            (filterOther.value != '-1' ? filterOther.value : null)
+        ]
+        
+        var filteredArr = arr.filter((value) => value !== null);
+
+        if (document.querySelectorAll('.card.proj-card .tech-filters')) {
+            var techFilters = document.querySelectorAll('.card.proj-card .tech-filters');
+            [].forEach.call(techFilters, function(item) {
+                var techFiltersStr = item.innerText.toLowerCase();
+                var isMatch = filteredArr.some((a) => a.toLowerCase() === techFiltersStr);
+                if (!isMatch) {
+                    item.closest('.col-md-6').style.display = 'none';
+                }
             });
-            if (document.querySelectorAll('.card.proj-card .tech-filters')) {
-                var techFilters = document.querySelectorAll('.card.proj-card .tech-filters');
-                [].forEach.call(techFilters, function(item) {
-                    var techFiltersStr = item.innerText.toLowerCase();
-                    var isMatch = filteredArr.some((a) => {
-                        return a.toLowerCase() === techFiltersStr;
-                    });
-                    if (isMatch) {
-                        item.closest('.col-md-6').style.display = 'none';
-                    }
-                });
-            }
         }
     }
     if (eruda) {
