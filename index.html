@@ -86,7 +86,7 @@
         <div class="d-flex flex-wrap mb-5">
             <div class=""><a href="/">All</a></div>
             <div class="ms-4 me-2">
-                <select id="filter-language" class="custom-select">
+                <select id="filter-language" class="custom-select" onchange="handleSelectLanguage()">
                     <option value="-1" selected>Programming Languages</option>
                     <option value="JavaScript">JavaScript</option>
                     <option value="PHP">PHP</option>
@@ -587,9 +587,16 @@
 <script>eruda.init();</script>
 
 <script>
-if (eruda) {
-    console.log("Hello! Thank you for visiting my portfolio.");
-}
+    function handleSelectLanguage() {
+        var filterLibrary = document.getElementById("filter-library");
+        var selectedValue = filterLibrary.value;
+        if (eruda) {
+            console.log("Selected value: " + selectedValue);
+        }
+    }
+    if (eruda) {
+        console.log("Hello! Thank you for visiting my portfolio.");
+    }
 </script>
 
 </body>
