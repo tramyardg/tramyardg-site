@@ -587,9 +587,11 @@
 <script>eruda.init();</script>
 
 <script>
+    var filterLibrary = document.getElementById('filter-library');
+    var filterLanguage = document.getElementById('filter-language');
+    var filterCms = document.getElementById('filter-cms');
     function handleSelectLanguage() {
-        var filterLibrary = document.getElementById("filter-library");
-        var selectedValue = filterLibrary.value;
+        var selectedValue = filterLanguage.value;
         if (eruda) {
             console.log("Selected value: " + selectedValue);
         }
