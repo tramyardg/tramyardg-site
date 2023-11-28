@@ -587,40 +587,38 @@
 <script>eruda.init();</script> -->
 
 <script>
+    // Select elements
     var filterLibrary = document.getElementById('filter-library');
     var filterLanguage = document.getElementById('filter-language');
     var filterCms = document.getElementById('filter-cms');
     var filterOther = document.getElementById('filter-other');
-    function handleSelectChange() {
-        var selectedValue = filterLanguage.value;
-        console.log("Selected value: " + selectedValue);
-        var arr = [
-            (filterLanguage.value != '-1' ? filterLanguage.value : null),
-            (filterLibrary.value != '-1' ? filterLibrary.value : null),
-            (filterCms.value != '-1' ? filterCms.value : null),
-            (filterOther.value != '-1' ? filterOther.value : null)
-        ];
-        console.log(arr);
-        
-        var filteredArr = arr.filter((value) => value !== null);
-        console.log(filteredArr, 'filteredArr');
 
-        if (document.querySelectorAll('.card.proj-card .tech-filters')) {
-            var techFilters = document.querySelectorAll('.card.proj-card .tech-filters');
-            [].forEach.call(techFilters, function(item) {
-                var techFiltersStr = item.innerHTML.toLowerCase();
-                console.log(techFiltersStr, 'techFiltersStr');
-                var isMatch = filteredArr.some((a) => a.toLowerCase() === techFiltersStr);
-                if (!isMatch) {
-                    item.closest('.col-md-6').style.display = 'none';
-                }
-            });
-        }
+    // Function to handle select change
+    function handleSelectChange() {
+        // Create an array of selected values
+        var arr = [filterLanguage, filterLibrary, filterCms, filterOther]
+            .map(element => (element.value !== '-1' ? element.value.toLowerCase() : null))
+            .filter(value => value !== null);
+
+        console.log(arr, 'arr');
+
+        // Select all elements with class 'card.proj-card .tech-filters'
+        var techFilters = document.querySelectorAll('.card.proj-card .tech-filters');
+
+        // Loop through each tech filter element
+        techFilters.forEach(item => {
+            var techFiltersStr = item.innerHTML.toLowerCase();
+            console.log(techFiltersStr, 'techFiltersStr');
+
+            // Check if the tech filter is in the filtered array
+            var isMatch = arr.includes(techFiltersStr);
+
+            // Toggle the display property based on the match
+            item.closest('.col-md-6').style.display = isMatch ? 'block' : 'none';
+        });
     }
-    // if (eruda) {
-    //     console.log("Hello! Thank you for visiting my portfolio.");
-    // }
 </script>
+
 
 </body>
 </html>
