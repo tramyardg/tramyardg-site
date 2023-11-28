@@ -604,6 +604,18 @@
             var filteredArr = arr.filter(function(value) {
                 return value !== null;
             });
+            if (document.querySelectorAll('.card.proj-card .tech-filters')) {
+                var techFilters = document.querySelectorAll('.card.proj-card .tech-filters');
+                [].forEach.call(techFilters, function(item) {
+                    var techFiltersStr = item.innerText.toLowerCase();
+                    var isMatch = filteredArr.some((a) => {
+                        return a.toLowerCase() === techFiltersStr;
+                    });
+                    if (isMatch) {
+                        item.closest('.col-md-6').style.display = 'none';
+                    }
+                });
+            }
         }
     }
     if (eruda) {
