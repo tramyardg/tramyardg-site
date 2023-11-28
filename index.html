@@ -590,10 +590,18 @@
     var filterLibrary = document.getElementById('filter-library');
     var filterLanguage = document.getElementById('filter-language');
     var filterCms = document.getElementById('filter-cms');
+    var filterOther = document.getElementById('filter-other');
     function handleSelectLanguage() {
         var selectedValue = filterLanguage.value;
         if (eruda) {
             console.log("Selected value: " + selectedValue);
+            var arr = [
+                ...(filterLanguage != '-1' ? filterLanguage : null),
+                ...(filterLibrary != '-1' ? filterLibrary : null),
+                ...(filterCms != '-1' ? filterCms : null),
+                ...(filterOther != '-1' ? filterOther : null)
+            ]
+            console.log(arr);
         }
     }
     if (eruda) {
