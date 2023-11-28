@@ -206,7 +206,7 @@
                         <a href="https://beyondtherunway.ca/" target="_blank" title="Beyond the Runway Inc.">Beyond the Runway website</a>
                         <div class="mt-2 text-muted">
                             <div class="dev-env">Development environment</div>
-                            <span class="tech-filters">React, Firebase, Stripe, Ant Design, NodeJS, ExpressJS</span>
+                            <span class="tech-filters">React, JavaScript, Firebase, Stripe, Ant Design, NodeJS, ExpressJS</span>
                         </div>
                     </div>
                     <img class="card-img-right flex-auto d-none d-lg-block" style="width: 230px; height: 220px; object-fit: contain;" src="assets/images/btr_main_page_banner.webp" alt="Beyond the Runway Inc." data-holder-rendered="true">
@@ -612,7 +612,7 @@
             var techFiltersArr = techFiltersStr.split(/\s*,\s*/);
 
             // Check if the tech filter is in the filtered array
-            var isMatch = techFiltersArr.filter(e => arr.includes(e)).length > 0;
+            var isMatch = arr.every(e => techFiltersArr.includes(e));
 
             // Toggle the display property based on the match
             item.closest('.col-md-6').style.display = isMatch ? 'block' : 'none';
