@@ -175,7 +175,7 @@
                         <a href="https://omm-astro.ca/en/homepage/" target="_blank" title="Mont-Mégantic Observatory">OMM website</a>
                         <div class="mt-2 text-muted">
                             <div class="dev-env">Development environment</div>
-                            WordPress, PHP, JavaScript, SCSS, Advanced Custom Fields
+                            <span class="tech-filters">WordPress, PHP, JavaScript, SCSS, Advanced Custom Fields</span>
                         </div>
                     </div>
                     <img class="card-img-right flex-auto d-none d-lg-block" style="width: 230px; height: 220px; object-fit: contain;" src="assets/images/omm-astro.webp" alt="Mont-Mégantic Observatory (OMM)" data-holder-rendered="true">
@@ -609,9 +609,10 @@
         techFilters.forEach(item => {
             var techFiltersStr = item.innerHTML.toLowerCase();
             console.log(techFiltersStr, 'techFiltersStr');
+            var techFiltersArr = techFiltersStr.split(/\s*,\s*/);
 
             // Check if the tech filter is in the filtered array
-            var isMatch = arr.includes(techFiltersStr);
+            var isMatch = techFiltersArr.filter(e => arr.includes(e)).length > 0;
 
             // Toggle the display property based on the match
             item.closest('.col-md-6').style.display = isMatch ? 'block' : 'none';
