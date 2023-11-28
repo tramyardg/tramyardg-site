@@ -602,11 +602,13 @@
         ]
         
         var filteredArr = arr.filter((value) => value !== null);
+        console.log(filteredArr, 'filteredArr');
 
         if (document.querySelectorAll('.card.proj-card .tech-filters')) {
             var techFilters = document.querySelectorAll('.card.proj-card .tech-filters');
             [].forEach.call(techFilters, function(item) {
-                var techFiltersStr = item.innerText.toLowerCase();
+                var techFiltersStr = item.innerHTML.toLowerCase();
+                console.log(techFiltersStr, 'techFiltersStr');
                 var isMatch = filteredArr.some((a) => a.toLowerCase() === techFiltersStr);
                 if (!isMatch) {
                     item.closest('.col-md-6').style.display = 'none';
