@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Raymart De Guzman, JavaScript, WordPress, HubSpot, CMS, Parkour3, Beyond the Runway, Portfolio, booxi.com, CVparser, CGI Hackathon, AutoExpress, Hotel-mgmt-system">
-    <meta name="author" content="Raymart De Guzman, JavaScript, WordPress, HubSpot, CMS ReactJS, Software developer, Full-Stack developer, Web developer, Java, jQuery, JavaScript, PHP">
+    <meta name="author" content="Raymart De Guzman, JavaScript, WordPress, HubSpot, CMS React, Software developer, Full-Stack developer, Web developer, Java, jQuery, JavaScript, PHP">
 
     <meta property="og:url" content="https://tramyardg-site.vercel.app/" />
     <meta property="og:type" content="website" />
@@ -83,30 +83,68 @@
     <h3 class="mbr-section-title pb-5 align-center mbr-fonts-style display-2">Portfolio</h3>
     <div class="container">
 
+        <div class="d-flex flex-wrap mb-5">
+            <div class=""><a href="/">All</a></div>
+            <div class="ms-4 me-2">
+                <select id="filter-language" class="custom-select" onchange="handleSelectChange()">
+                    <option value="-1" selected>Programming Languages</option>
+                    <option value="JavaScript">JavaScript</option>
+                    <option value="PHP">PHP</option>
+                    <option value="Java">Java</option>
+                </select>
+            </div>
+            <div class="mx-2">
+                <select id="filter-library" class="custom-select" onchange="handleSelectChange()">
+                    <option value="-1" selected>Front-end Frameworks & Libraries</option>
+                    <option value="React">React</option>
+                    <option value="NextJS">Next.js</option>
+                    <option value="Bootstrap">Bootstrap</option>
+                    <option value="jQuery">jQuery</option>
+                    <option value="Ant Design">Ant Design</option>
+                </select>
+            </div>
+            <div class="mx-2">
+                <select id="filter-cms" class="custom-select" onchange="handleSelectChange()">
+                    <option value="-1" selected>Content Management System</option>
+                    <option value="WordPress">WordPress</option>
+                    <option value="HubSpot">HubSpot</option>
+                    <option value="HyGraph">HyGraph</option>
+                </select>
+            </div>
+            <div class="">
+                <select id="filter-other" class="custom-select" onchange="handleSelectChange()">
+                    <option value="-1" selected>Other technologies</option>
+                    <option value="Elementor">Elementor</option>
+                    <option value="CPT">Custom Post Type</option>
+                    <option value="ACF">ACF</option>
+                </select>
+            </div>
+        </div>
+
         <div class="row mb-2">
             <div class="col-md-6">
-                <div class="card flex-md-row mb-4 box-shadow">
+                <div class="card proj-card flex-md-row mb-4 box-shadow">
                     <div class="card-body d-flex flex-column align-items-start">
                         <h4><strong class="d-inline-block mb-2">Cascades PRO (work)</strong></h4>
-                        <p class="card-text mb-auto">Cascades PRO is built with ReactJS and NextJS. My main responsibilities includes writing reusable components, creating and modifying new features.</p>
+                        <p class="card-text mb-auto">Cascades PRO is built with React and NextJS. My main responsibilities includes writing reusable components, creating and modifying new features.</p>
                         <a href="https://www.pro.cascades.com/" target="_blank" title="Cascades PRO">Cascades PRO official website</a>
                         <div class="mt-2 text-muted">
                             <div class="dev-env">Development environment</div>
-                            NextJS, ReactJS, WordPress
+                            <span class="tech-filters">NextJS, React, WordPress</span>
                         </div>
                     </div>
                     <img class="card-img-right flex-auto d-none d-lg-block" style="width: 230px; height: 220px; object-fit: contain;" src="assets/images/cascades-logo.svg" alt="Cascades PRO" data-holder-rendered="true">
                 </div>
             </div>
             <div class="col-md-6">
-                <div class="card flex-md-row mb-4 box-shadow">
+                <div class="card proj-card flex-md-row mb-4 box-shadow">
                     <div class="card-body d-flex flex-column align-items-start">
                         <h4><strong class="d-inline-block mb-2">Orthogone (work)</strong></h4>
                         <p class="card-text mb-auto">Software engineering + R&D for innovative products</p>
                         <a href="https://orthogone.com/" target="_blank" title="Orthogone">Visit Orthogone website</a>
                         <div class="mt-2 text-muted">
                             <div class="dev-env">Development environment</div>
-                            WordPress, PHP, Elementor, CPT, ACF, JetEngine, JavaScript
+                            <span class="tech-filters">WordPress, PHP, Elementor, CPT, ACF, JetEngine, JavaScript</span>
                         </div>
                     </div>
                     <img class="card-img-right flex-auto d-none d-lg-block" style="width: 230px; height: 220px; object-fit: contain;" src="assets/images/1920x1080-Postes-RH-jpg.webp" alt="Petal Solutions Inc." data-holder-rendered="true">
@@ -116,21 +154,21 @@
 
         <div class="row mb-2">    
             <div class="col-md-6">
-                <div class="card flex-md-row mb-4 box-shadow">
+                <div class="card proj-card flex-md-row mb-4 box-shadow">
                     <div class="card-body d-flex flex-column align-items-start">
                         <h4><strong class="d-inline-block mb-2">Petal Solutions Inc. (work)</strong></h4>
                         <p class="card-text mb-auto">Petal Clinical Capacity Management. Medical Practice Management Software.</p>
                         <a href="https://www.petal-health.com/en-us/" target="_blank" title="Petal Solutions Inc.">Visit Petal website</a>
                         <div class="mt-2 text-muted">
                             <div class="dev-env">Development environment</div>
-                            HubSpot, JavaScript
+                            <span class="tech-filters">HubSpot, JavaScript</span>
                         </div>
                     </div>
                     <img class="card-img-right flex-auto d-none d-lg-block" style="width: 230px; height: 220px; object-fit: contain;" src="assets/images/petal_solutions.jpg" alt="Petal Solutions Inc." data-holder-rendered="true">
                 </div>
             </div>
             <div class="col-md-6">
-                <div class="card flex-md-row mb-4 box-shadow">
+                <div class="card proj-card flex-md-row mb-4 box-shadow">
                     <div class="card-body d-flex flex-column align-items-start">
                         <h4><strong class="d-inline-block mb-2">Mont-Mégantic Observatory (work)</strong></h4>
                         <p class="card-text mb-auto">The Mont-Mégantic Observatory (OMM) is a telescope on the summit of the Mont-Mégantic.</p>
@@ -144,14 +182,14 @@
                 </div>
             </div>            
             <div class="col-md-6">
-                <div class="card flex-md-row mb-4 box-shadow">
+                <div class="card proj-card flex-md-row mb-4 box-shadow">
                     <div class="card-body d-flex flex-column align-items-start">
                         <h4><strong class="d-inline-block mb-2">Ovatio (work)</strong></h4>
                         <p class="card-text mb-auto">Ovatio is a virtual trophy generator website where my main focus was converting Figma mockups into an actual web pages.</p>
                         <a href="https://ovatio.ca/en/" target="_blank" title="Ovatio virtual trophy">Ovatio website</a>
                         <div class="mt-2 text-muted">
                             <div class="dev-env">Development environment</div>
-                            JavaScript, WordPress, PHP
+                            <span class="tech-filters">JavaScript, WordPress, PHP</span>
                         </div>
                     </div>
                     <img class="card-img-right flex-auto d-none d-lg-block" style="width: 230px; height: 220px; object-fit: contain;" src="assets/images/ovatio.webp" alt="Ovatio" data-holder-rendered="true">
@@ -161,28 +199,28 @@
 
         <div class="row mb-2">
             <div class="col-md-6">
-                <div class="card flex-md-row mb-4 box-shadow">
+                <div class="card proj-card flex-md-row mb-4 box-shadow">
                     <div class="card-body d-flex flex-column align-items-start">
                         <h4><strong class="d-inline-block mb-2">Beyond the Runway Inc. (work)</strong></h4>
                         <p class="card-text mb-auto">Beyond the Runway, an e-commerce and dress rental company where I work as a Full-Stack developer.</p>
                         <a href="https://beyondtherunway.ca/" target="_blank" title="Beyond the Runway Inc.">Beyond the Runway website</a>
                         <div class="mt-2 text-muted">
                             <div class="dev-env">Development environment</div>
-                            ReactJS, Firebase, Stripe, Ant Design, NodeJS, ExpressJS
+                            <span class="tech-filters">React, Firebase, Stripe, Ant Design, NodeJS, ExpressJS</span>
                         </div>
                     </div>
                     <img class="card-img-right flex-auto d-none d-lg-block" style="width: 230px; height: 220px; object-fit: contain;" src="assets/images/btr_main_page_banner.webp" alt="Beyond the Runway Inc." data-holder-rendered="true">
                 </div>
             </div>
             <div class="col-md-6">
-                <div class="card flex-md-row mb-4 box-shadow">
+                <div class="card proj-card flex-md-row mb-4 box-shadow">
                     <div class="card-body d-flex flex-column align-items-start">
                         <h4><strong class="d-inline-block mb-2">Maison Marie Saint Pierre (work)</strong></h4>
                         <p class="card-text mb-auto">Maison Marie Saint Pierre is a Shopify website where my main responsibility was migrating their Magento database into Shopify</p>
                         <a href="https://www.mariesaintpierre.com/us_en/" target="_blank" title="Maison Marie Saint Pierre">Maison Marie Saint Pierre | Official Website</a>
                         <div class="mt-2 text-muted">
                             <div class="dev-env">Development environment</div>
-                            Shopify, Liquid
+                            <span class="tech-filters">Shopify, Liquid</span>
                         </div>
                     </div>
                     <img class="card-img-right flex-auto d-none d-lg-block" style="width: 230px; height: 220px; object-fit: contain;" src="assets/images/maison-marie-saint-pierre-1.jpg" alt="Maison Marie Saint-Pierre" data-holder-rendered="true">
@@ -193,28 +231,28 @@
 
         <div class="row mb-2">
             <div class="col-md-6">
-                <div class="card flex-md-row mb-4 box-shadow">
+                <div class="card proj-card flex-md-row mb-4 box-shadow">
                     <div class="card-body d-flex flex-column align-items-start">
                         <h4><strong class="d-inline-block mb-2">Hotel Management System</strong></h4>
                         <p class="card-text mb-auto">Hotel booking management system (side project) is for customer to reserve a room and for admin to manage reservation.</p>
                         <a href="https://github.com/tramyardg/hotel-mgmt-system" target="_blank" title="Hotel Management System">View the repository on GitHub</a>
                         <div class="mb-1 mt-2 text-muted">
                             <div class="dev-env">Development environment</div>
-                            PHP, SQL, PHPUnit test, OOP, DAO, Composer, JavaScript, jQuery
+                            <span class="tech-filters">PHP, SQL, PHPUnit test, OOP, DAO, Composer, JavaScript, jQuery</span>
                         </div>
                     </div>
                     <img class="card-img-right flex-auto d-none d-lg-block" src="assets/images/hotel-mgmt.webp" alt="Hotel Management System" data-holder-rendered="true" style="width: 230px; height: 150px;">
                 </div>
             </div>
             <div class="col-md-6">
-                <div class="card flex-md-row mb-4 box-shadow">
+                <div class="card proj-card flex-md-row mb-4 box-shadow">
                     <div class="card-body d-flex flex-column align-items-start">
                         <h4><strong class="d-inline-block mb-2">Weather Tracker</strong></h4>
                         <p class="card-text mb-auto">Weather Tracker (side project) is a simple app to display the weather in three cities.</p>
                         <a href="http://weather-app-olive-phi.vercel.app/" target="_blank" title="Weather Tracker App">See Weather Tracker App on GitHub</a>
                         <div class="mb-1 mt-2 text-muted">
                             <div class="dev-env">Development environment</div>
-                            ReactJS, Vercel, fetch API, Tomorrow.io
+                            <span class="tech-filters">React, Vercel, fetch API, Tomorrow.io</span>
                         </div>
                     </div>
                     <img class="card-img-right flex-auto d-none d-lg-block" src="assets/images/weather-app.webp" alt="Weather Tracker app" data-holder-rendered="true" style="width: 230px; height: 150px;">
@@ -224,7 +262,7 @@
         
         <div class="row mb-2">
             <div class="col-md-6">
-                <div class="card flex-md-row mb-4 box-shadow">
+                <div class="card proj-card flex-md-row mb-4 box-shadow">
                     <div class="card-body d-flex flex-column align-items-start">
                         <h4><strong class="d-inline-block mb-2">CGI Hackathon 2018</strong></h4>
                         <p class="card-text mb-auto">I participated in a Hackathon event hosted by CGI Montreal downtown branch. The theme of the
@@ -232,21 +270,21 @@
                         <a href="http://www.concordia.ca/cuevents/offices/provost/ssc/2018/05/25/cgi-hackothon-montreal-may-2018.html" target="_blank" title="CGI Hackathon">See the official event website</a>
                         <div class="mt-2 text-muted">
                             <div class="dev-env">Development environment</div>
-                            Java, Artificial Intelligence, Neural network
+                            <span class="tech-filters">Java, Artificial Intelligence, Neural network</span>
                         </div>
                     </div>
                     <img class="card-img-right flex-auto d-none d-lg-block" style="width: 230px; height: 220px; object-fit: contain;" alt="CGI Hackathon 2018" src="assets/images/cgi_hackaton_may2018.webp" data-holder-rendered="true">
                 </div>
             </div>
             <div class="col-md-6">
-                <div class="card flex-md-row mb-4 box-shadow">
+                <div class="card proj-card flex-md-row mb-4 box-shadow">
                     <div class="card-body d-flex flex-column align-items-start">
                         <h4><strong class="d-inline-block mb-2">CVparser</strong></h4>
                         <p class="card-text mb-auto">CVparser (side project) is a software for parsing or extracting data out of cvs/resumes.</p>
                         <a href="https://github.com/tramyardg/CVparser" target="_blank" title="CVparser">Project GitHub repository here</a>
                         <div class="mt-2 text-muted">
                             <div class="dev-env">Development environment</div>
-                            Java, Graphical User Interface, Factory Design Pattern, Desktop App
+                            <span class="tech-filters">Java, Graphical User Interface, Factory Design Pattern, Desktop App</span>
                         </div>
                     </div>
                     <img class="card-img-right flex-auto d-none d-lg-block" style="width: 230px; height: 220px; object-fit: contain;" src="assets/images/cvparser.png" alt="CV parser, CVparser" data-holder-rendered="true">
@@ -256,7 +294,7 @@
         
         <div class="row mb-2">
             <div class="col-md-6">
-                <div class="card flex-md-row mb-4 box-shadow">
+                <div class="card proj-card flex-md-row mb-4 box-shadow">
                     <div class="card-body d-flex flex-column align-items-start">
                         <h4><strong class="d-inline-block mb-2">Canadian Citizenship Test (CCT)</strong></h4>
                         <p class="card-text mb-auto"> Canada Citizenship Test (side project) is a project that aims to provide a platform for people
@@ -264,20 +302,20 @@
                         <a href="https://github.com/tramyardg/cct" title="Canadian Citizenship Test" target="_blank">You can find the repository on GitHub</a>
                         <div class="mt-2 text-muted">
                             <div class="dev-env">Development environment</div>
-                            JavaScript, jQuery, PHP, SQL, AJAX, JSON, Git
+                            <span class="tech-filters">JavaScript, jQuery, PHP, SQL, AJAX, JSON, Git</span>
                         </div>
                     </div>
                     <img class="card-img-right flex-auto d-none d-lg-block" alt="Canadian Citizenship Test" style="width: 230px; height: 180px;" src="assets/images/cct_home.webp" data-holder-rendered="true">
                 </div>
             </div>
             <div class="col-md-6">
-                <div class="card flex-md-row mb-4 box-shadow">
+                <div class="card proj-card flex-md-row mb-4 box-shadow">
                     <div class="card-body d-flex flex-column align-items-start">
                         <h4><strong class="d-inline-block mb-2">FitCitie (work)</strong></h4>
                         <p class="card-text mb-auto">FitCitie is a universal rewards program for fitness-based activities.</p>
                         <div class="mb-1 mt-2 text-muted">
                             <div class="dev-env">Development environment</div>
-                            PHP, MVC, MySQL, JavaScript, jQuery, SQL, AJAX, JSON, Git
+                            <span class="tech-filters">PHP, MVC, MySQL, JavaScript, jQuery, SQL, AJAX, JSON, Git</span>
                         </div>
                     </div>
                     <img class="card-img-right flex-auto d-none d-lg-block" style="width: 230px; height: 180px;" alt="FitCitie" src="assets/images/750x500-fitcitie1-750x497.webp" data-holder-rendered="true">
@@ -287,7 +325,7 @@
 
         <div class="row mb-2">
             <div class="col-md-6">
-                <div class="card flex-md-row mb-4 box-shadow">
+                <div class="card proj-card flex-md-row mb-4 box-shadow">
                     <div class="card-body d-flex flex-column align-items-start">
                         <h4><strong class="d-inline-block mb-2">Booxi (work)</strong></h4>
                         <p class="card-text mb-auto">This was my first internship where I learned JavaScript and front end development in
@@ -295,21 +333,21 @@
                         <a href="https://www.booxi.com/" target="_blank" title="Booxi">Appointment Scheduling Software for retailers | Booxi</a>
                         <div class="mb-1 mt-2 text-muted">
                             <div class="dev-env">Development environment</div>
-                            HTML5, CSS3, SASS, Bootstrap, JavaScript, jQuery, Bitbucket
+                            <span class="tech-filters">HTML5, CSS3, SASS, Bootstrap, JavaScript, jQuery</span>
                         </div>
                     </div>
                     <img class="card-img-right flex-auto d-none d-lg-block" alt="Booxi" src="assets/images/750x400-booxi-brand-750x400.webp" data-holder-rendered="true" style="width: 230px; height: 160px;">
                 </div>
             </div>
             <div class="col-md-6">
-                <div class="card flex-md-row mb-4 box-shadow">
+                <div class="card proj-card flex-md-row mb-4 box-shadow">
                     <div class="card-body d-flex flex-column align-items-start">
                         <h4><strong class="d-inline-block mb-2">AutoExpress</strong></h4>
                         <p class="card-text mb-auto">AutoExpress (side project) is a car dealership website made for searching, referring, calculating expenses, and buying a car.</p>
                         <a href="https://github.com/tramyardg/autoexpress" target="_blank">This project is on GitHub</a>
                         <div class="mb-1 mt-2 text-muted">
                             <div class="dev-env">Development environment</div>
-                            PHP, JavaScript, SQL, jQuery, OOP, DAO
+                            <span class="tech-filters">PHP, JavaScript, SQL, jQuery, OOP, DAO</span>
                         </div>
                     </div>
                     <img class="card-img-right flex-auto d-none d-lg-block" alt="AutoExpress" style="width: 230px; height: 180px;" src="assets/images/750x500-autoexpress-1032x535.webp" data-holder-rendered="true">
@@ -346,7 +384,7 @@
                     <div class="pb-5">
                         <div class="title-wrap">
                             <div class="progressbar-title mbr-fonts-style display-7">
-                                <p>ReactJS</p>
+                                <p>React</p>
                             </div>
                             <div class="progress_value mbr-fonts-style display-7">
                                 <div class="progressbar-number"></div>
@@ -545,13 +583,43 @@
 <script src="assets/theme/js/script.js"></script>
 <script src="assets/theme/js/back2top.js"></script>
 
-<script src="//cdn.jsdelivr.net/npm/eruda"></script>
-<script>eruda.init();</script>
+<!-- <script src="//cdn.jsdelivr.net/npm/eruda"></script>
+<script>eruda.init();</script> -->
 
 <script>
-if (eruda) {
-    console.log("Hello! Thank you for visiting my portfolio.");
-}
+    var filterLibrary = document.getElementById('filter-library');
+    var filterLanguage = document.getElementById('filter-language');
+    var filterCms = document.getElementById('filter-cms');
+    var filterOther = document.getElementById('filter-other');
+    function handleSelectChange() {
+        var selectedValue = filterLanguage.value;
+        console.log("Selected value: " + selectedValue);
+        var arr = [
+            (filterLanguage.value != '-1' ? filterLanguage.value : null),
+            (filterLibrary.value != '-1' ? filterLibrary.value : null),
+            (filterCms.value != '-1' ? filterCms.value : null),
+            (filterOther.value != '-1' ? filterOther.value : null)
+        ];
+        console.log(arr);
+        
+        var filteredArr = arr.filter((value) => value !== null);
+        console.log(filteredArr, 'filteredArr');
+
+        if (document.querySelectorAll('.card.proj-card .tech-filters')) {
+            var techFilters = document.querySelectorAll('.card.proj-card .tech-filters');
+            [].forEach.call(techFilters, function(item) {
+                var techFiltersStr = item.innerHTML.toLowerCase();
+                console.log(techFiltersStr, 'techFiltersStr');
+                var isMatch = filteredArr.some((a) => a.toLowerCase() === techFiltersStr);
+                if (!isMatch) {
+                    item.closest('.col-md-6').style.display = 'none';
+                }
+            });
+        }
+    }
+    // if (eruda) {
+    //     console.log("Hello! Thank you for visiting my portfolio.");
+    // }
 </script>
 
 </body>
