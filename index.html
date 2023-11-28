@@ -596,10 +596,10 @@
         if (eruda) {
             console.log("Selected value: " + selectedValue);
             var arr = [
-                ...(filterLanguage.value != '-1' ? filterLanguage.value : null),
-                ...(filterLibrary.value != '-1' ? filterLibrary.value : null),
-                ...(filterCms.value != '-1' ? filterCms.value : null),
-                ...(filterOther.value != '-1' ? filterOther.value : null)
+                (filterLanguage.value != '-1' ? filterLanguage.value : null),
+                (filterLibrary.value != '-1' ? filterLibrary.value : null),
+                (filterCms.value != '-1' ? filterCms.value : null),
+                (filterOther.value != '-1' ? filterOther.value : null)
             ]
             console.log(arr);
         }
