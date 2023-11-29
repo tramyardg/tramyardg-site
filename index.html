@@ -84,7 +84,7 @@
     <div class="container">
 
         <div class="d-flex flex-wrap mb-5">
-            <div class=""><a href="index.html#features2-17">All</a></div>
+            <button type="button" onclick="handleClickAll()" class="btn btn-link p-0 m-0">All</button>
             <div class="ms-4 me-2">
                 <select id="filter-language" class="custom-select" onchange="handleSelectChange()">
                     <option value="-1" selected>Programming Languages</option>
@@ -581,30 +581,27 @@
     var filterCms = document.getElementById('filter-cms');
     var filterOther = document.getElementById('filter-other');
 
-    // Function to handle select change
     function handleSelectChange() {
-        // Create an array of selected values
         var arr = [filterLanguage, filterLibrary, filterCms, filterOther]
             .map(element => (element.value !== '-1' ? element.value.toLowerCase() : null))
             .filter(value => value !== null);
 
-        console.log(arr, 'arr');
-
-        // Select all elements with class 'card.proj-card .tech-filters'
         var techFilters = document.querySelectorAll('.card.proj-card .tech-filters');
-
-        // Loop through each tech filter element
         techFilters.forEach(item => {
             var techFiltersStr = item.innerHTML.toLowerCase();
-            console.log(techFiltersStr, 'techFiltersStr');
             var techFiltersArr = techFiltersStr.split(/\s*,\s*/);
 
-            // Check if the tech filter is in the filtered array
             var isMatch = arr.every(e => techFiltersArr.includes(e));
 
-            // Toggle the display property based on the match
             item.closest('.col-md-6').style.display = isMatch ? 'block' : 'none';
         });
+    }
+
+    function handleClickAll() {
+        filterOther.value = "-1";
+        filterLanguage.value = "-1";
+        filterLibrary.value = "-1";
+        filterCms.value = "-1";
     }
 </script>
 
