@@ -577,7 +577,7 @@
 
             var isMatch = arr.every(e => techFiltersArr.includes(e));
 
-            item.closest('.col-md-6').style.display = isMatch ? 'block' : 'none';
+            item.closest('.col-md-4').style.display = isMatch ? 'block' : 'none';
         });
     }
 
@@ -586,7 +586,7 @@
         filterLanguage.value = "-1";
         filterLibrary.value = "-1";
         filterCms.value = "-1";
-        document.querySelectorAll('.card.proj-card').forEach(item => item.closest('.col-md-6').style.display = 'block');
+        document.querySelectorAll('.card.proj-card').forEach(item => item.closest('.col-md-4').style.display = 'block');
     }
 </script>
 
