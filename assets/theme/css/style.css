@@ -734,7 +734,7 @@ label {
   position: relative;
 }
 
-@media (max-width: 1200px) {
+@media (min-width: 1200px) {
   .headline.mbr-text span {
     position: absolute;
     left: 0;
