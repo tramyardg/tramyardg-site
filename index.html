@@ -583,23 +583,21 @@
             var cardCol = item.closest('.col-md-4');
 
             if (isMatch) {
-                // Animate matching cards with a flip and fade in
-                tl.to(cardCol, {
-                    duration: 0.5,
-                    display: 'block',
+                // Simple opacity and display change
+                gsap.to(cardCol, {
+                    duration: 0.3,
                     opacity: 1,
-                    rotationX: 0,
-                    scale: 1,
-                    ease: "power2.out"
-                }, "-=0.3");
+                    display: 'block'
+                });
             } else {
-                // Animate non-matching cards with a flip and fade out
-                tl.to(cardCol, {
-                    duration: 0.5,
+                // Fade out and hide
+                gsap.to(cardCol, {
+                    duration: 0.3,
                     opacity: 0,
-                    display: 'none',
-                    ease: "power2.in"
-                }, "-=0.3");
+                    onComplete: () => {
+                        cardCol.style.display = 'none';
+                    }
+                });
             }
         });
     }
@@ -615,13 +613,10 @@
         var cards = document.querySelectorAll('.card.proj-card');
         
         gsap.to(cards.forEach(item => item.closest('.col-md-4')), {
-            duration: 0.5,
-            display: 'block',
+            duration: 0.3,
             opacity: 1,
-            rotationX: 0,
-            scale: 1,
-            stagger: 0.1,
-            ease: "back.out(1.7)"
+            display: 'block',
+            stagger: 0.05
         });
     }
 
