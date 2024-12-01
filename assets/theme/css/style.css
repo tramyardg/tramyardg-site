@@ -732,9 +732,10 @@ label {
 
 .headline.mbr-text {
   position: relative;
-  overflow: hidden;
 }
 
 .headline.mbr-text span {
   position: absolute;
+  left: 0;
+  width: 100%;
 }
