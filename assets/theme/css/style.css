@@ -286,6 +286,13 @@ figure[mbr-media-size] {
   max-width: 100%;
 }
 
+.headline-top {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 .mbr-figure img,
 .card-img img {
   width: 100%;
@@ -728,3 +735,6 @@ label {
   overflow: hidden;
 }
 
+.headline.mbr-text span {
+  position: absolute;
+}
