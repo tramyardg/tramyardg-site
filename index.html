@@ -37,9 +37,8 @@
     <div class="container  ">
         <div class="media-container">
             <div class="col-md-12 align-center">
-                <h1 class="mbr-section-title pb-3 mbr-white mbr-bold mbr-fonts-style display-1">
-                    Hello!</h1>
-                <p class="mbr-text pb-3 mbr-white mbr-fonts-style display-2">I'm Raymart De Guzman<br> Web Developer | WordPress & React Specialist | Performance Optimization & UX Enthusiast</p>
+                <h1 class="mbr-section-title pb-3 mbr-white mbr-bold mbr-fonts-style display-1">Hello!</h1>
+                <p class="mbr-text pb-3 mbr-white mbr-fonts-style display-2"><span>I'm Raymart De Guzman</span><br><span>Web Developer | WordPress & React Specialist</span><br><span>Performance Optimization & UX Enthusiast</span></p>
 
                 <div class="icons-media-container mbr-white">
                     <div class="card col-12 col-md-6 col-lg-3">
@@ -705,6 +704,17 @@
                 trigger: '#about .container > .media-container-row',
                 start: 'top 80%',
                 toggleActions: 'play none none reverse'
+            }
+        });
+        
+        gsap.timeline().from("p.mbr-text span", {
+            y: 100,
+            ease: "power4.out",
+            delay: 1,
+            skewY: 7,
+            duration: 1.8,
+            stagger: {
+                amount: 0.3
             }
         });
     });
