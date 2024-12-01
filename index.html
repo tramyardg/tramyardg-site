@@ -706,8 +706,9 @@
                 toggleActions: 'play none none reverse'
             }
         });
-        
-        gsap.timeline().from("p.mbr-text span", {
+
+        const tl = gsap.timeline();
+        tl.from("p.mbr-text span", {
             y: 100,
             ease: "power4.out",
             delay: 1,
