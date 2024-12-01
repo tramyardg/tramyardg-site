@@ -38,7 +38,7 @@ const back2top = (function () {
     arrowStyle: {
       stylize () {
         back2top.commonStyles();
-        back2top.id.style.border = 'solid #55b4d4';
+        back2top.id.style.border = 'solid #02181f';
         back2top.id.style.borderWidth = '0 3px 3px 0';
         back2top.id.style.transform = 'rotate(-135deg)';
         back2top.id.style.webkitTransform = 'rotate(-135deg)';
