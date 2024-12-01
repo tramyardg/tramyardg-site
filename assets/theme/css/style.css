@@ -441,3 +441,11 @@ nav .mbr-section-btn {
 .col-md-4 {
   transition: opacity 0.3s ease;
 }
+.icons-media-container .card {
+  position: relative;
+  transition: transform 0.3s ease;
+  transform-origin: bottom center;
+}
+.icons-media-container .card:hover {
+  transform: translateY(-10px);
+}
