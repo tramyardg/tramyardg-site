@@ -734,8 +734,10 @@ label {
   position: relative;
 }
 
-.headline.mbr-text span {
-  position: absolute;
-  left: 0;
-  width: 100%;
+@media (max-width: 1200px) {
+  .headline.mbr-text span {
+    position: absolute;
+    left: 0;
+    width: 100%;
+  }
 }
