@@ -558,6 +558,8 @@
 <!-- <script src="//cdn.jsdelivr.net/npm/eruda"></script>
 <script>eruda.init();</script> -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
 
 <script>
     var filterLibrary = document.getElementById('filter-library');
@@ -624,6 +626,67 @@
     [filterLibrary, filterLanguage, filterCms, filterOther].forEach(select => {
         select.addEventListener('change', handleSelectChange);
     });
+
+    document.addEventListener('DOMContentLoaded', () => {
+        gsap.registerPlugin(ScrollTrigger);
+
+        // Animation for Skills Section
+        gsap.utils.toArray('.skill-col').forEach(col => {
+            gsap.from(col, {
+            opacity: 0,
+            y: 50,
+            duration: 1,
+            scrollTrigger: {
+                trigger: col,
+                start: 'top 80%',
+                toggleActions: 'play none none reverse'
+            }
+            });
+        });
+
+        // Animation for Skill Items
+        gsap.utils.toArray('.skill-item').forEach((item, index) => {
+            gsap.from(item, {
+            opacity: 0,
+            x: -50,
+            duration: 0.7,
+            delay: index * 0.2,
+            scrollTrigger: {
+                trigger: item,
+                start: 'top 80%',
+                toggleActions: 'play none none reverse'
+            }
+            });
+        });
+
+        // Animation for Competencies Section
+        gsap.from('.competency-col', {
+            opacity: 0,
+            y: 50,
+            duration: 1,
+            scrollTrigger: {
+            trigger: '.competency-col',
+            start: 'top 80%',
+            toggleActions: 'play none none reverse'
+            }
+        });
+
+        // Animation for Competency Items
+        gsap.utils.toArray('.competency-item').forEach((item, index) => {
+            gsap.from(item, {
+            opacity: 0,
+            x: -50,
+            duration: 0.7,
+            delay: index * 0.2,
+            scrollTrigger: {
+                trigger: item,
+                start: 'top 80%',
+                toggleActions: 'play none none reverse'
+            }
+            });
+        });
+    });
+
 </script>
 
 </body>
