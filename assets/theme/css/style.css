@@ -741,3 +741,7 @@ label {
     width: 100%;
   }
 }
+
+.card-body.d-flex.flex-column.align-items-start a:hover {
+  text-decoration: underline;
+}
