@@ -742,6 +742,7 @@ label {
   }
 }
 
-.card-body.d-flex.flex-column.align-items-start a:hover {
+.card-body.d-flex.flex-column.align-items-start a:hover,
+.card-body.d-flex.flex-column.align-items-start a:hover h4 strong {
   text-decoration: underline;
 }
