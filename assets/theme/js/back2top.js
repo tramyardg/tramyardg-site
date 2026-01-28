@@ -10,7 +10,7 @@ const back2top = (function () {
       back2top.id.style.bottom = '20px';
       back2top.id.style.right = '30px';
       back2top.id.style.zIndex = '99';
-      back2top.id.style.padding = '15px';
+      back2top.id.style.padding = '10px';
     },
     buttonStyle: {
       stylize () {
