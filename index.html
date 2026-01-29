@@ -24,26 +24,11 @@
     <link rel="preload" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"></noscript>
     
-    <!-- <link rel="stylesheet" href="assets/theme/css/style.css">-->
+    <link rel="stylesheet" href="assets/theme/css/custom.css">
     <link rel="stylesheet" href="assets/theme/css/style.min.css">
 
     <link rel="preload" href="assets/mobirise/css/mbr.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="assets/mobirise/css/mbr.min.css"></noscript>
-    <style>
-        .card.proj-card {
-            height: 97%;
-        }
-        .card.proj-card a h4 * {
-            text-decoration: underline;
-        }
-        img.proj-img-card {
-            object-fit: cover;
-            width: 100%;
-            height: 100%;
-            margin-bottom: 2em;
-            max-height: 277.02px;
-        }
-    </style>
 
 </head>
 <body>
@@ -95,7 +80,7 @@
     <h2 class="pb-5 align-center">Portfolio</h2>
     <div class="container">
 
-        <div class="d-flex flex-wrap mb-5">
+        <div class="d-flex flex-wrap mb-5" id="filters-sec">
             <button type="button" onclick="handleClickAll()" class="btn btn-link p-0 m-0">All</button>
             <div class="ms-4 me-2 select">
                 <select id="filter-language" class="custom-select" onchange="handleSelectChange()">
@@ -540,6 +525,12 @@
                     </div>
                 </div>
             </div>
+
+            <div id="no-results-message" class="col-12 text-center">
+                <div class="no-results-content">
+                    <h3 style="color: #02181f;">No results found</h3>
+                </div>
+            </div>
         </div>
         
     </div>
@@ -663,7 +654,7 @@
 </section>
 
 
-<section class="cid-qVidh8TUXO" id="footer6-16" data-rv-view="68">
+<section class="cid-qVidh8TUXO" style="background-color: #02181f;" id="footer6-16" data-rv-view="68">
     <div class="container">
         <div class="media-container-row align-center mbr-white">
             <div class="col-12">
@@ -693,33 +684,32 @@
     var filterLanguage = document.getElementById('filter-language');
     var filterCms = document.getElementById('filter-cms');
     var filterOther = document.getElementById('filter-other');
+    var techFilters = document.querySelectorAll('.card.proj-card .tech-filters');
+    var cardColSelector = '.col-lg-4.col-md-6.col-sm-12';
 
     function handleSelectChange() {
         var arr = [filterLanguage, filterLibrary, filterCms, filterOther]
             .map(element => (element.value !== '-1' ? element.value.toLowerCase() : null))
             .filter(value => value !== null);
 
-        var techFilters = document.querySelectorAll('.card.proj-card .tech-filters');
-        
-        // Create a GSAP timeline for animations
+        var matchCount = 0;
         var tl = gsap.timeline();
-
+        
         techFilters.forEach(item => {
             var techFiltersStr = item.innerHTML.toLowerCase();
             var techFiltersArr = techFiltersStr.split(/\s*,\s*/);
 
             var isMatch = arr.every(e => techFiltersArr.includes(e));
-            var cardCol = item.closest('.col-md-4');
+            var cardCol = item.closest(cardColSelector);
 
             if (isMatch) {
-                // Simple opacity and display change
+                matchCount++;
                 gsap.to(cardCol, {
                     duration: 0.3,
                     opacity: 1,
                     display: 'block'
                 });
             } else {
-                // Fade out and hide
                 gsap.to(cardCol, {
                     duration: 0.3,
                     opacity: 0,
@@ -729,6 +719,26 @@
                 });
             }
         });
+
+        var noResultsMsg = document.getElementById('no-results-message');
+        
+        if (matchCount === 0) {
+            gsap.to(noResultsMsg, {
+                duration: 0.3,
+                opacity: 1,
+                display: 'block'
+            });
+        } else {
+            if (noResultsMsg) {
+                gsap.to(noResultsMsg, {
+                    duration: 0.3,
+                    opacity: 0,
+                    onComplete: () => {
+                        noResultsMsg.style.display = 'none';
+                    }
+                });
+            }
+        }
     }
 
     function handleClickAll() {
@@ -740,14 +750,16 @@
         filterCms.value = "-1";
 
         // Animate all cards back to visible with a staggered entrance
-        var cards = document.querySelectorAll('.card.proj-card');
         
-        gsap.to(cards.forEach(item => item.closest('.col-md-4')), {
-            duration: 0.3,
-            opacity: 1,
-            display: 'block',
-            stagger: 0.05
+        techFilters.forEach(item => {
+            var cardCol = item.closest(cardColSelector);
+            gsap.to(cardCol, {
+                duration: 0.3,
+                opacity: 1,
+                display: 'block'
+            });
         });
+
     }
 
     // Add event listeners to filter selects
