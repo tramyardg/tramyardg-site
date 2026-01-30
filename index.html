@@ -48,14 +48,14 @@
                     <div class="card col-12 col-md-6 col-lg-3">
                         <div class="icon-block">
                             <p class="mbr-fonts-style display-5 mt-3 anchor-links">
-                                <a aria-label="Skills" title="Skills" href="index.html#skills">Skills</a>
+                                <a aria-label="Skills" title="Skills" href="index.html#skills">SKILLS</a>
                             </p>
                         </div>
                     </div>
                     <div class="card col-12 col-md-6 col-lg-3">
                         <div class="icon-block">
                             <p class="mbr-fonts-style display-5 mt-3 anchor-links">
-                                <a aria-label="About" title="Skills" href="index.html#about">About</a>
+                                <a aria-label="About" title="Skills" href="index.html#about">ABOUT</a>
                             </p>
                         </div>
                     </div>
@@ -663,112 +663,7 @@
 
 
 <script>
-    var filterLibrary = document.getElementById('filter-library');
-    var filterLanguage = document.getElementById('filter-language');
-    var filterCms = document.getElementById('filter-cms');
-    var filterOther = document.getElementById('filter-other');
-    var techFilters = document.querySelectorAll('.card.proj-card .tech-filters');
-    var noResultsMsg = document.getElementById('no-results-message');
-    var cardColSelector = '.col-lg-4.col-md-6.col-sm-12';
-
-    function handleSelectChange() {
-        var arr = [filterLanguage, filterLibrary, filterCms, filterOther]
-            .map(element => (element.value !== '-1' ? element.value.toLowerCase() : null))
-            .filter(value => value !== null);
-
-        var matchCount = 0;
-        var tl = gsap.timeline();
-        
-        techFilters.forEach(item => {
-            var techFiltersStr = item.innerHTML.toLowerCase();
-            var techFiltersArr = techFiltersStr.split(/\s*,\s*/);
-
-            var isMatch = arr.every(e => techFiltersArr.includes(e));
-            var cardCol = item.closest(cardColSelector);
-
-            if (isMatch) {
-                matchCount++;
-                gsap.to(cardCol, {
-                    duration: 0.3,
-                    opacity: 1,
-                    display: 'block'
-                });
-            } else {
-                gsap.to(cardCol, {
-                    duration: 0.3,
-                    opacity: 0,
-                    onComplete: () => {
-                        cardCol.style.display = 'none';
-                    }
-                });
-            }
-        });
-
-        
-        if (matchCount === 0) {
-            gsap.to(noResultsMsg, {
-                duration: 0.3,
-                opacity: 1,
-                display: 'block'
-            });
-        } else {
-            if (noResultsMsg) {
-                gsap.to(noResultsMsg, {
-                    duration: 0.3,
-                    opacity: 0,
-                    onComplete: () => {
-                        noResultsMsg.style.display = 'none';
-                    }
-                });
-            }
-        }
-    }
-
-    function handleClickAll() {
-        console.debug("clicked");
-        filterOther.value = "-1";
-        filterLanguage.value = "-1";
-        filterLibrary.value = "-1";
-        filterCms.value = "-1";
-
-        techFilters.forEach(item => {
-            var cardCol = item.closest(cardColSelector);
-            gsap.to(cardCol, {
-                duration: 0.3,
-                opacity: 1,
-                display: 'block'
-            });
-        });
-
-        gsap.to(noResultsMsg, {
-            duration: 0.3,
-            opacity: 0,
-            onComplete: () => {
-                noResultsMsg.style.display = 'none';
-            }
-        });
-
-    }
-
-    [filterLibrary, filterLanguage, filterCms, filterOther].forEach(select => {
-        select.addEventListener('change', handleSelectChange);
-    });
-
-    document.addEventListener('DOMContentLoaded', () => {
-        const tl = gsap.timeline();
-        tl.from(".headline.mbr-text span", {
-            y: 100,
-            opacity: 0,
-            skewY: 7,
-            ease: "power4.out",
-            delay: 0.5,
-            duration: 1.8,
-            stagger: {
-                amount: 0.5
-            }
-        });
-    });
-
+   var filterLibrary=document.getElementById("filter-library"),filterLanguage=document.getElementById("filter-language"),filterCms=document.getElementById("filter-cms"),filterOther=document.getElementById("filter-other"),techFilters=document.querySelectorAll(".card.proj-card .tech-filters"),noResultsMsg=document.getElementById("no-results-message"),cardColSelector=".col-lg-4.col-md-6.col-sm-12";function handleSelectChange(){var e=[filterLanguage,filterLibrary,filterCms,filterOther].map(e=>"-1"!==e.value?e.value.toLowerCase():null).filter(e=>null!==e),t=0;gsap.timeline(),techFilters.forEach(l=>{var r=l.innerHTML.toLowerCase().split(/\s*,\s*/),a=e.every(e=>r.includes(e)),o=l.closest(cardColSelector);a?(t++,gsap.to(o,{duration:.3,opacity:1,display:"block"})):gsap.to(o,{duration:.3,opacity:0,onComplete(){o.style.display="none"}})}),0===t?gsap.to(noResultsMsg,{duration:.3,opacity:1,display:"block"}):noResultsMsg&&gsap.to(noResultsMsg,{duration:.3,opacity:0,onComplete(){noResultsMsg.style.display="none"}})}function handleClickAll(){console.debug("clicked"),filterOther.value="-1",filterLanguage.value="-1",filterLibrary.value="-1",filterCms.value="-1",techFilters.forEach(e=>{var t=e.closest(cardColSelector);gsap.to(t,{duration:.3,opacity:1,display:"block"})}),gsap.to(noResultsMsg,{duration:.3,opacity:0,onComplete(){noResultsMsg.style.display="none"}})}[filterLibrary,filterLanguage,filterCms,filterOther].forEach(e=>{e.addEventListener("change",handleSelectChange)}),document.addEventListener("DOMContentLoaded",()=>{let e=gsap.timeline();e.from(".headline.mbr-text span",{y:100,opacity:0,skewY:7,ease:"power4.out",delay:.5,duration:1.8,stagger:{amount:.5}})});
 </script>
 
 </body>
