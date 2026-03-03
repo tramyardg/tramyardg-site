@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Services · WordPress for local business | Raymart De Guzman</title>
+  <!-- simple one-pager for /services/ – target: restaurant, garage, barber shop -->
+  <!-- all prices now in CANADIAN DOLLARS (CAD) – updated consistently -->
+  <style>
+    /* RESET & BASE — using palette: #02181f, #f9f9f9, #1c1c1c */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: #f9f9f9;
+      color: #1c1c1c;
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      line-height: 1.5;
+      scroll-behavior: smooth;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem 1.5rem;
+    }
+
+    /* TYPOGRAPHY & PALETTE */
+    h1, h2, h3 {
+      font-weight: 600;
+      line-height: 1.2;
+      color: #02181f;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    h2 {
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
+      position: relative;
+      display: inline-block;
+    }
+    h2:after {
+      content: '';
+      display: block;
+      width: 70px;
+      height: 4px;
+      background: #02181f;
+      margin-top: 0.5rem;
+      border-radius: 3px;
+    }
+
+    h3 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .section-subhead {
+      font-size: 1.2rem;
+      color: #1c1c1c;
+      max-width: 700px;
+      margin-bottom: 2rem;
+      border-left: 5px solid #02181f;
+      padding-left: 1.2rem;
+    }
+
+    /* buttons / links */
+    .btn {
+      display: inline-block;
+      background-color: #02181f;
+      color: #f9f9f9;
+      text-decoration: none;
+      font-weight: 500;
+      padding: 0.75rem 2rem;
+      border-radius: 40px;
+      transition: all 0.2s ease;
+      border: 2px solid #02181f;
+      box-shadow: 0 4px 8px rgba(2,24,31,0.1);
+    }
+    .btn:hover {
+      background-color: transparent;
+      color: #02181f;
+    }
+    .btn-outline {
+      background-color: transparent;
+      color: #02181f;
+      border: 2px solid #02181f;
+    }
+    .btn-outline:hover {
+      background-color: #02181f;
+      color: #f9f9f9;
+    }
+
+    /* header / nav subtle */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.2rem 1.5rem;
+      background: #f9f9f9;
+      border-bottom: 1px solid rgba(2,24,31,0.1);
+    }
+    .logo a {
+      font-weight: 700;
+      font-size: 1.5rem;
+      color: #02181f;
+      text-decoration: none;
+    }
+    .nav-links a {
+      color: #1c1c1c;
+      margin-left: 2rem;
+      text-decoration: none;
+      font-weight: 500;
+    }
+    .nav-links a:hover {
+      color: #02181f;
+      border-bottom: 2px solid #02181f;
+    }
+
+    /* HERO */
+    .hero {
+      background: linear-gradient(145deg, #f0f3f5 0%, #ffffff 100%);
+      border-radius: 0 0 40px 40px;
+    }
+    .hero-grid {
+      display: flex;
+      align-items: center;
+      gap: 2.5rem;
+      flex-wrap: wrap;
+    }
+    .hero-content {
+      flex: 1 1 350px;
+    }
+    .hero-badge {
+      background: #02181f;
+      color: #f9f9f9;
+      display: inline-block;
+      padding: 0.3rem 1rem;
+      border-radius: 30px;
+      font-size: 0.9rem;
+      letter-spacing: 0.5px;
+      margin-bottom: 1.5rem;
+    }
+    .hero-content p {
+      font-size: 1.2rem;
+      margin: 1.5rem 0 2rem;
+    }
+    .hero-image {
+      flex: 1 1 350px;
+      background: #02181f;
+      color: #f9f9f9;
+      padding: 2.5rem 2rem;
+      border-radius: 30px;
+      box-shadow: 20px 20px 0 rgba(2,24,31,0.2);
+    }
+    .hero-image blockquote {
+      font-size: 1.5rem;
+      font-weight: 300;
+      margin-bottom: 1rem;
+      line-height: 1.4;
+    }
+    .hero-image cite {
+      font-style: normal;
+      font-weight: 600;
+      display: block;
+      margin-top: 1rem;
+    }
+    .portfolio-mention {
+      margin-top: 2rem;
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .portfolio-mention span {
+      background: #1c1c1c;
+      color: #f9f9f9;
+      padding: 0.3rem 1rem;
+      border-radius: 30px;
+      font-size: 0.9rem;
+    }
+
+    /* cards grid */
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 2rem;
+      margin: 2.5rem 0 2rem;
+    }
+    .service-card {
+      background: white;
+      padding: 2rem 1.5rem;
+      border-radius: 28px;
+      box-shadow: 0 10px 25px rgba(2,24,31,0.05);
+      border: 1px solid rgba(2,24,31,0.1);
+      transition: transform 0.2s;
+    }
+    .service-card:hover {
+      transform: translateY(-6px);
+      border-color: #02181f;
+    }
+    .service-card .price {
+      font-size: 2rem;
+      font-weight: 700;
+      color: #02181f;
+      margin: 0.5rem 0 1rem;
+      line-height: 1;
+    }
+    .price small {
+      font-size: 1rem;
+      font-weight: 400;
+      color: #1c1c1c;
+    }
+    .service-card ul {
+      list-style: none;
+      margin: 1.5rem 0;
+    }
+    .service-card li {
+      margin-bottom: 0.6rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .service-card li::before {
+      content: "✅";
+      color: #02181f;
+      font-size: 1.1rem;
+    }
+    .service-footer {
+      margin-top: 1.5rem;
+      border-top: 1px dashed #ccc;
+      padding-top: 1rem;
+      font-size: 0.95rem;
+    }
+
+    /* addons table style */
+    .addons-section {
+      background: white;
+      border-radius: 32px;
+      padding: 2rem;
+      /* margin: 3rem 0; */
+      border: 1px solid #dde0e0;
+    }
+    .addon-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1.5rem 0 1rem;
+    }
+    .addon-table th {
+      text-align: left;
+      padding: 1rem 0.5rem 0.5rem 0;
+      border-bottom: 2px solid #02181f;
+      color: #02181f;
+    }
+    .addon-table td {
+      padding: 0.9rem 0.5rem 0.9rem 0;
+      border-bottom: 1px solid #eaeef0;
+    }
+    .addon-table tr:last-child td {
+      border-bottom: none;
+    }
+    .addon-table .feature-desc {
+      font-weight: 500;
+    }
+    .addon-table .price-tag {
+      font-family: monospace;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+    .note-multi {
+      background: #f9f9f9;
+      padding: 0.8rem 1.2rem;
+      border-radius: 50px;
+      display: inline-block;
+      margin: 1rem 0 0;
+      font-size: 0.9rem;
+    }
+
+    /* terms rows (extra pages/products) */
+    .terms-panel {
+      background: #02181f;
+      color: #f9f9f9;
+      border-radius: 28px;
+      padding: 2rem;
+      margin-top: 2.5rem;
+      margin-bottom: 2.5rem;
+    }
+    .terms-panel h3 {
+      color: #f9f9f9;
+      margin-bottom: 1.5rem;
+    }
+    .flex-terms {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+    }
+    .term-item {
+      background: rgba(255,255,255,0.1);
+      padding: 1.5rem;
+      border-radius: 20px;
+      flex: 1 1 200px;
+    }
+    .term-item h4 {
+      font-size: 1.2rem;
+      border-bottom: 2px solid #f9f9f9;
+      padding-bottom: 0.5rem;
+      margin-bottom: 1rem;
+    }
+    .term-item p {
+      font-size: 0.95rem;
+      opacity: 0.9;
+      margin-bottom: 0.5rem;
+    }
+    .term-item .price {
+      font-weight: 700;
+      font-size: 1.3rem;
+    }
+
+    /* CTA */
+    .cta-block {
+      text-align: center;
+      /* background: #02181f; */
+      color: #02181f;
+      padding: 3.5rem 2rem;
+      border-radius: 50px;
+      margin-top: 3rem;
+    }
+    .cta-block h2 {
+      color: #02181f;
+    }
+    .cta-block h2:after {
+      background: #02181f;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .cta-block .btn {
+      background: #02181f;
+      color: #f9f9f9;
+      border-color: #02181f;
+      font-size: 1.1rem;
+      margin-top: 1.5rem;
+    }
+    .cta-block .btn:hover {
+      background: transparent;
+      color: #02181f;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      color: #4a5a5f;
+      border-top: 1px solid rgba(2,24,31,0.1);
+    }
+    footer a {
+      color: #02181f;
+    }
+  </style>
+</head>
+<body>
+  <!-- simple header (mimics existing site nav) -->
+  <nav class="navbar">
+    <div class="logo"><a href="https://tramyardg-site.vercel.app" target="_blank" rel="noopener">Raymart De Guzman</a></div>
+    <div class="nav-links">
+      <a href="https://tramyardg-site.vercel.app/index.html#portfolio" target="_blank" rel="noopener">Work</a>
+      <a href="#" style="border-bottom: 2px solid #02181f;">Services</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
+
+  <main>
+    <!-- HERO section – reflects brand & targets small biz -->
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-content">
+          <span class="hero-badge">⚡ FOR RESTAURANTS · GARAGES · BARBERSHOPS · CLINICS · SALONS AUTO SHOPS  · OTHER SMALL BUSINESSES</span>
+          <h1>WordPress that works <br>as hard as you do.</h1>
+          <p>Showcase your menu, bookings, or inventory — no fluff. I create custom WordPress websites tailored for local businesses that want to stand out online.</p>
+          <div class="portfolio-mention">
+            <a href="https://tramyardg-site.vercel.app" target="_blank" class="btn" rel="noopener">→ see portfolio</a>
+            <span>5+ years experience</span>
+          </div>
+        </div>
+        <!-- <div class="hero-image">
+          <blockquote>“Raymart built our barbershop site – we now get 80% more bookings. Clean, fast, and exactly what we needed.”</blockquote>
+          <cite>— Mike's Garage & Barbershop</cite>
+          <div style="margin-top: 2rem; font-size: 0.9rem; background: #1c1c1c; padding: 0.8rem; border-radius: 30px;">
+            ✅ trusted by local restaurant owners · automotive shops
+          </div>
+        </div> -->
+      </div>
+    </section>
+
+    <!-- why WordPress short row -->
+    <div class="container">
+      <div style="background: #02181f; color: #f9f9f9; padding: 1.5rem 2rem; border-radius: 60px; margin: 2rem 0; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center;">
+        <span style="font-weight: 600;">Why WordPress?</span>
+        <span style="font-size: 0.95rem;">✓ flexible ✓ secure ✓ seo‑ready ✓ any device</span>
+        <span style="font-size: 0.9rem; background: #1c1c1c; padding: 0.2rem 1rem; border-radius: 40px;">5+ years agency experience</span>
+      </div>
+    </div>
+
+    <!-- MAIN SERVICES – now all prices in CAD (converted from EUR at ~1.45) -->
+    <div class="container" id="services">
+      <h2>Services for your business</h2>
+      <div class="section-subhead">flat rates in Canadian dollars (CAD) · no hidden costs</div>
+
+      <div class="card-grid">
+        <!-- base rate: €50 → CA$72.50 -->
+        <div class="service-card">
+          <h3>Base setup</h3>
+          <div class="price">CA$402.50 <small>one‑off</small></div>
+          <ul>
+            <li>WordPress installation</li>
+            <li>Hosting & Domain assistance</li>
+            <li>Free theme setup</li>
+            <li>Essential plugins (security, SEO)</li>
+            <li>Home page setup</li>
+          </ul>
+          <div class="service-footer">Perfect for a micro business start</div>
+        </div>
+        <!-- showcase website: €90 → CA$130.50 -->
+        <div class="service-card">
+          <h3>Showcase website</h3>
+          <div class="price">CA$797.65 <small>+ base</small></div>
+          <ul>
+            <li>3 additional pages: About, Services, Contact</li>
+            <li>Theme customization</li>
+            <li>Mobile responsive</li>
+            <li>SEO friendly structure</li>
+          </ul>
+          <div class="service-footer">Ideal for restaurant / barber shop</div>
+        </div>
+        <!-- e‑commerce (already in CAD from original) -->
+        <div class="service-card">
+          <h3>E‑commerce website</h3>
+          <div class="price">CA$1514.10 <small>+ base or showcase</small></div>
+          <ul>
+            <li>WooCommerce setup</li>
+            <li>Payment gateway integration</li>
+            <li>Product upload (up to 50 items)</li>
+            <li>Shop page & cart</li>
+            <li>Secure checkout</li>
+          </ul>
+          <div class="service-footer">For garages selling parts, local shops</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- additional features (converted from EUR to CAD) -->
+    <div class="container addons-section">
+      <h2 style="margin-top: 0;">✨ extras to boost your site</h2>
+      <table class="addon-table">
+        <thead><tr><th>Feature</th><th>description</th><th>price (CAD)</th></tr></thead>
+        <tbody>
+          <tr><td class="feature-desc">Live Chat System</td><td>real‑time communication with visitors</td><td class="price-tag">CA$129.00</td></tr>
+          <tr><td class="feature-desc">Appointment Scheduling</td><td>booking for services (barber, garage)</td><td class="price-tag">CA$136.25</td></tr>
+          <tr><td class="feature-desc">Blog setup</td><td>share news / updates</td><td class="price-tag">CA$272.50</td></tr>
+          <tr><td class="feature-desc">Membership System</td><td>exclusive content for members</td><td class="price-tag">CA$243.50</td></tr>
+          <tr><td class="feature-desc">Multilingual Site</td><td>WPML / Polylang support</td><td class="price-tag">CA$372.50</td></tr>
+        </tbody>
+      </table>
+      <div class="note-multi">🌎 ask about multi‑language & live chat – perfect for diverse neighbourhoods</div>
+    </div>
+
+    <!-- terms of service: additional pages / products (already in CAD) -->
+    <div class="container terms-panel">
+      <h3><span style="color: #ffffff;">+</span> flexible add‑ons (terms of service)</h3>
+      <div class="flex-terms">
+        <div class="term-item">
+          <h4>Additional pages</h4>
+          <p><span class="price">CA$131.72</span> / page</p>
+          <p>+1 day per page<br>up to 5 extra pages</p>
+          <p style="margin-top: 0.5rem;">(bulk: 3 pages CA$395.15 +2d)</p>
+        </div>
+        <div class="term-item">
+          <h4>Extra products (e‑commerce)</h4>
+          <p><span class="price">CA$17.93</span> per product</p>
+          <p>10 add. → CA$179.30 (1d)<br>20 add. → CA$358.60 (2d)</p>
+        </div>
+        <div class="term-item">
+          <h4>Ongoing support</h4>
+          <p>maintenance & security updates – ask for quote</p>
+          <p class="price">custom</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- small specialization: restaurant/garage/barber icons -->
+    <!-- <div class="container" style="display: flex; gap: 2rem; justify-content: center; flex-wrap: wrap; background: #ffffff; border-radius: 50px; padding: 1.5rem;">
+      <span style="font-weight: 600;">📍 TRUSTED BY:</span>
+      <span>🍝 Ristorante Roma</span>
+      <span>🔧 Mikes Auto Repair</span>
+      <span>💈 The Barber House</span>
+      <span>☕ Café local</span>
+    </div> -->
+
+    <!-- final CTA with portfolio link -->
+    <div class="container cta-block" id="contact">
+      <h2>ready to bring your business online?</h2>
+      <p style="max-width: 600px; margin: 1rem auto;">you bring the expertise (best pasta, best haircuts) – I bring the website.</p>
+      <a href="https://tramyardg-site.vercel.app" target="_blank" class="btn" rel="noopener">view my portfolio →</a>
+      <p style="margin-top: 1.8rem; font-size: 0.95rem;">📩 or say hello</p>
+      <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScdstz4bjXh4woUZnv8R7Ny3F64ehyLKujx4F6tcTH7OoFj0Q/viewform?embedded=true" width="100%" height="891" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+
+    </div>
+
+
+  </main>
+
+  <footer>
+    <p>© Raymart De Guzman – Front‑end & WordPress developer</p>
+    <p style="margin-top: 0.5rem; font-size: 0.85rem;">all prices in Canadian dollars (CAD) · exact project quote after discussion</p>
+  </footer>
+</body>
+</html>
